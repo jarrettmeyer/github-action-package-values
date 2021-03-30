@@ -1,0 +1,17 @@
+{
+  "name": "github-action-package-values",
+  "description": "Gets requested values from the project's package.json files. Also returns both the long and short commit SHA.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Jarrett Meyer",
+    "email": "jarrettmeyer@gmail.com"
+  },
+  "scripts": {
+    "lint": "exit 0",
+    "test": "exit 0"
+  },
+  "devDependencies": {
+    "@actions/core": "^1.2.6",
+    "eslint": "^7.23.0"
+  }
+}
