@@ -10,7 +10,7 @@ const commitShaShort = cp
 core.setOutput("commit_sha", commitSha);
 core.setOutput("commit_sha_short", commitShaShort);
 
-const commitLog = execSync("git log -1").toString("utf-8").split("\n");
+const commitLog = cp.execSync("git log -1").toString("utf-8").split("\n");
 const commitAuthor = commitLog[1].substring(8);
 const commitDate = commitLog[2].substring(8);
 const commitTimestamp = new Date(commitDate).valueOf();
@@ -23,7 +23,7 @@ const basePath = core.getInput("path");
 const packagePath = path.resolve(basePath, "package.json");
 const package = require(packagePath);
 
-if (package) {
+if (typeof package === "object") {
   if (typeof package.name === "string") {
     core.setOutput("package_name");
   }
