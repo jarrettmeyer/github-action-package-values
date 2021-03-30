@@ -1,7 +1,7 @@
 {
   "name": "github-action-package-values",
   "description": "Gets package version and commit details.",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "author": {
     "name": "Jarrett Meyer",
     "email": "jarrettmeyer@gmail.com"
@@ -18,8 +18,10 @@
     "lint": "exit 0",
     "test": "exit 0"
   },
+  "dependencies": {
+    "@actions/core": "^1.2.6"
+  },
   "devDependencies": {
-    "@actions/core": "^1.2.6",
     "prettier": "^2.2.1"
   }
 }
