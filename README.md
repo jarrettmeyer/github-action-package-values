@@ -12,7 +12,7 @@ jobs:
       uses: actions/checkout@v2
     - name: Get package values
       uses: jarrettmeyer/github-action-package-values@v1
-      id: package-values
+      id: package_values
 # snip
 ```
 
@@ -23,7 +23,7 @@ Input vars are added with a `with` statement.
 ```yaml
 - name: Get package values
   uses: jarrettmeyer/github-action-package-values@v1
-  id: package-values
+  id: package_values
   with:
     path: ./folder
 ```

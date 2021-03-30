@@ -1,7 +1,7 @@
 {
   "name": "github-action-package-values",
   "description": "Gets package version and commit details.",
-  "version": "0.7.0",
+  "version": "1.0.0",
   "author": {
     "name": "Jarrett Meyer",
     "email": "jarrettmeyer@gmail.com"
