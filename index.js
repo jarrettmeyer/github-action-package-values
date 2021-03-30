@@ -46,12 +46,16 @@ const package = require(packagePath);
 
 if (typeof package === "object") {
   if (typeof package.name === "string") {
-    core.setOutput("package_name");
+    core.setOutput("package_name", package.name);
     log("Name", package.name);
+  } else {
+    core.setFailed("package.json does not have a name property");
   }
   if (typeof package.version === "string") {
-    core.setOutput("package_version");
+    core.setOutput("package_version", package.version);
     log("Version", package.version);
+  } else {
+    core.setFailed("package.json does not have a version property");
   }
 } else {
   core.setFailed("packson.json file does not exist");

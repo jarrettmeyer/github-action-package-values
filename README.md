@@ -16,7 +16,17 @@ jobs:
 # snip
 ```
 
-## Customization
+## Input vars
+
+Input vars are added with a `with` statement.
+
+```yaml
+- name: Get package values
+  uses: jarrettmeyer/github-action-package-values@v1
+  id: package-values
+  with:
+    path: ./folder
+```
 
 | var  | required | description                                      |
 | :--- | :------- | :----------------------------------------------- |
@@ -33,3 +43,11 @@ jobs:
 | commit_timestamp | The commit date as UNIX timestamp, e.g. `1617096505000`           |
 | package_name     | The `package.json` name, e.g. `github-action-package-values`      |
 | package_version  | The `package.json` version, e.g. `1.0.0`                          |
+
+## Errors
+
+This action will throw errors under the following conditions:
+
+- `package.json` file does not exist in the given path
+- `package.json` does not contain a `name` property
+- `package.json` does not contain a `version` property
