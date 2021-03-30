@@ -11,7 +11,8 @@ jobs:
     - name: Checkout latest
       uses: actions/checkout@v2
     - name: Get package values
-      uses: jarrettmeyer/package-values
+      uses: jarrettmeyer/github-action-package-values@v1
+      id: package-values
 # snip
 ```
 
