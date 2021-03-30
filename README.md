@@ -16,6 +16,12 @@ jobs:
 # snip
 ```
 
+## Customization
+
+| var  | required | description                                      |
+| :--- | :------- | :----------------------------------------------- |
+| path | no       | Directory of your package.json file, default `.` |
+
 ## Output vars
 
 | var              | description                                                       |

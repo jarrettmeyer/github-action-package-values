@@ -8,7 +8,7 @@ inputs:
   path:
     description: The directory for your package.json file.
     required: false
-    default: .
+    default: "."
 outputs:
   commit_sha:
     description: The commit sha, e.g. `ecca45978ef4d50f5b7042f898ddc383f89b6ead`

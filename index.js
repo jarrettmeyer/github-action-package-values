@@ -2,10 +2,25 @@ const core = require("@actions/core");
 const cp = require("child_process");
 const path = require("path");
 
-const commitSha = cp.execSync("git rev-parse HEAD").toString("utf-8");
+/**
+ * Write to info logs
+ *
+ * @param {string} key
+ * @param {string} value
+ */
+function log(key, value) {
+  key = (key + ":").padEnd(12);
+  core.info(`${key}: ${value}`);
+}
+
+const commitSha = cp
+  .execSync("git rev-parse HEAD")
+  .toString("utf-8")
+  .replace(/[\n]/g, "");
 const commitShaShort = cp
   .execSync("git rev-parse --short HEAD")
-  .toString("utf-8");
+  .toString("utf-8")
+  .replace(/[\n]/g, "");
 
 core.setOutput("commit_sha", commitSha);
 core.setOutput("commit_sha_short", commitShaShort);
@@ -19,6 +34,12 @@ core.setOutput("commit_author", commitAuthor);
 core.setOutput("commit_date", commitDate);
 core.setOutput("commit_timestamp", commitTimestamp);
 
+log("SHA (long)", commitSha);
+log("SHA (short)", commitShaShort);
+log("Author", commitAuthor);
+log("Date", commitDate);
+log("Timestamp", commitTimestamp);
+
 const basePath = core.getInput("path");
 const packagePath = path.resolve(basePath, "package.json");
 const package = require(packagePath);
@@ -26,8 +47,12 @@ const package = require(packagePath);
 if (typeof package === "object") {
   if (typeof package.name === "string") {
     core.setOutput("package_name");
+    log("Name", package.name);
   }
   if (typeof package.version === "string") {
     core.setOutput("package_version");
+    log("Version", package.version);
   }
+} else {
+  core.setFailed("packson.json file does not exist");
 }
