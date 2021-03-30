@@ -1,6 +1,6 @@
 {
   "name": "github-action-package-values",
-  "description": "Gets requested values from the project's package.json files. Also returns both the long and short commit SHA.",
+  "description": "Gets package version and commit details.",
   "version": "0.1.0",
   "author": {
     "name": "Jarrett Meyer",
@@ -20,6 +20,6 @@
   },
   "devDependencies": {
     "@actions/core": "^1.2.6",
-    "eslint": "^7.23.0"
+    "prettier": "^2.2.1"
   }
 }

@@ -1,0 +1,5 @@
+root = true 
+
+[*.{js,yaml,yml}]
+charset = utf-8
+trim_trailing_whitespace = true

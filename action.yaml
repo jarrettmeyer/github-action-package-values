@@ -1,0 +1,29 @@
+name: Package Values
+description: Gets commit and package values for your Node project.
+author: Jarrett Meyer
+branding:
+  icon: box
+  color: white
+inputs:
+  path:
+    description: The directory for your package.json file.
+    required: false
+    default: .
+outputs:
+  commit_sha:
+    description: The commit sha, e.g. `ecca45978ef4d50f5b7042f898ddc383f89b6ead`
+  commit_sha_short:
+    description: The short commit sha, e.g. `ecca459`
+  commit_author:
+    description: The commit author, e.g. `Jarrett Meyer <meyer_jarrett@lilly.com>`
+  commit_date:
+    description: The commit date, e.g. `Tue Mar 30 05:28:25 2021 -0400`
+  commit_timestamp:
+    description: The commit date as UNIX timestamp, e.g. `1617096505000`
+  package_name:
+    description: The `package.json` name, e.g. `github-action-package-values`
+  package_version:
+    description: The `package.json` version, e.g. `1.0.0`
+runs:
+  using: node12
+  main: index.js
